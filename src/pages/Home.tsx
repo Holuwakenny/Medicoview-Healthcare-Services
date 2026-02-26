@@ -214,6 +214,94 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Google Reviews Section */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="flex text-amber-400">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-6 h-6 fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <span className="text-xl font-bold text-slate-900">4.9/5 Rating</span>
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">What Our Patients Say</h2>
+            <p className="text-slate-600">Real reviews from our Google Business Profile</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Chizoba Chika",
+                review: "Thank you guys for removing the plaque in my teeth. You guys did a great job",
+                time: "a year ago",
+                initials: "CC"
+              },
+              {
+                name: "Chibuzo Goodnews",
+                review: "There services are topnotch. This is really a place to be for your dental care",
+                time: "a year ago",
+                initials: "CG"
+              },
+              {
+                name: "Drogba",
+                review: "It was so cool and fast, so reliable....",
+                time: "a year ago",
+                initials: "D"
+              }
+            ].map((testimonial, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 flex flex-col h-full"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center font-bold text-lg">
+                    {testimonial.initials}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900">{testimonial.name}</h4>
+                    <div className="flex text-amber-400 scale-75 -ml-4 origin-left">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <p className="text-slate-600 italic mb-6 flex-grow">"{testimonial.review}"</p>
+                <div className="flex items-center justify-between pt-4 border-t border-slate-50">
+                  <span className="text-xs text-slate-400">{testimonial.time}</span>
+                  <div className="flex items-center gap-1">
+                    <img src="https://www.google.com/favicon.ico" alt="Google" className="w-4 h-4 grayscale opacity-50" />
+                    <span className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Google Review</span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          
+          <div className="mt-12 text-center">
+            <a 
+              href="https://www.google.com/maps/place/Medicoview+Healthcare+Services+(Dental)/@6.5446252,3.2782118,17z/data=!4m8!3m7!1s0x103b8f0441f00ee9:0x6ae48841ff94d95b!8m2!3d6.5446252!4d3.2782118!9m1!1b1!16s%2Fg%2F11y9pb1w4n"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-emerald-600 font-bold hover:text-emerald-700 transition-colors"
+            >
+              Read more reviews on Google
+              <ChevronRight size={20} />
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
